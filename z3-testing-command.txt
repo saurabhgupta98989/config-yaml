@@ -1,0 +1,16 @@
+
+
+#To run temperary pod to test my mysql pod
+kubectl run mysql-client --rm -it --image=mysql:8.0 --restart=Never -- bash
+
+#Login to mysql pod and test, -h is your mysql pod service name
+mysql -h mysql -u root -p
+
+#To run a temp pod who has curl installed
+kubectl run curl-client --rm -it --image=curlimages/curl --restart=Never -- sh
+
+#to see services
+kubectl get svc
+
+#curl the end point, hostname is service name
+curl http://employee-backend/employees
