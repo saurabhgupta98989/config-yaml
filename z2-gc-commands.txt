@@ -1,0 +1,7 @@
+gcloud container clusters delete nagp-dev --region asia-south1
+
+gcloud container clusters list --region asia-south1
+
+gcloud container clusters create nagp-dev --zone asia-south1-a
+
+gcloud compute disks create nagp-employee-mysql-disk --size=10GB --zone=asia-south1-a

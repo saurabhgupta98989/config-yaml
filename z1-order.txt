@@ -1,0 +1,22 @@
+kubectl apply -f 1-configmap.yaml
+kubectl apply -f 2-secret.yaml
+kubectl apply -f 3-pv.yaml
+kubectl apply -f 4-pvc.yaml
+kubectl apply -f 5-mysql-deployment.yaml
+kubectl apply -f 6-mysql-service.yaml
+kubectl apply -f 7-api-deployment.yaml
+kubectl apply -f 8-api-service.yaml
+kubectl apply -f 9-ingress.yaml
+
+
+__
+
+kubectl delete -f 9-ingress.yaml
+kubectl delete -f 8-api-service.yaml
+kubectl delete -f 7-api-deployment.yaml
+kubectl delete -f 6-mysql-service.yaml
+kubectl delete -f 5-mysql-deployment.yaml
+kubectl delete -f 4-pvc.yaml
+kubectl delete -f 3-pv.yaml
+kubectl delete -f 2-secret.yaml
+kubectl delete -f 1-configmap.yaml
