@@ -18,3 +18,7 @@ curl http://employee-backend/employees
 #if not deleted
 kubectl delete pod curl-client
 
+#for ingress
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.0/deploy/static/provider/cloud/deploy.yaml
+kubectl get pods -n ingress-nginx
+kubectl get svc -n ingress-nginx
