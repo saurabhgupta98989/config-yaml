@@ -14,3 +14,7 @@ kubectl get svc
 
 #curl the end point, hostname is service name
 curl http://employee-backend/employees
+
+#if not deleted
+kubectl delete pod curl-client
+
