@@ -1,0 +1,10 @@
+gcloud container clusters delete nagp-dev --region asia-south1
+
+gcloud container clusters list --region asia-south1
+
+gcloud container clusters create nagp-dev --zone asia-south1-a
+
+gcloud compute disks create nagp-employee-mysql-disk --size=10GB --zone=asia-south1-a
+
+#ingress controller installation
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.0/deploy/static/provider/cloud/deploy.yaml

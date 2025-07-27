@@ -9,7 +9,10 @@ kubectl delete -f 3-app-configmap-dev.yaml
 kubectl delete -f 2-db-secret-dev.yaml
 kubectl delete -f 1-db-configmap-dev.yaml
 
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.0/deploy/static/provider/cloud/deploy.yaml
+gcloud compute disks delete nagp-employee-mysql-disk --zone=asia-south1-a
+gcloud container clusters delete nagp-dev --zone asia-south1-a
+
+kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.0/deploy/static/provider/cloud/deploy.yaml
 
 
 kubectl get all
