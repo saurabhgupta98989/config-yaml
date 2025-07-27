@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: employee-api
-          image: saurabhgupta98989/nagp-employee-be:latest
+          image: saurabhgupta98989/nagp-employee-be:0.0.2
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           envFrom:
@@ -22,3 +23,11 @@ spec:
                 name: db-config
             - secretRef:
                 name: db-secret
+          volumeMounts:
+            - name: config-volume
+              mountPath: /config/
+              readOnly: true
+      volumes:
+        - name: config-volume
+          configMap:
+            name: app-config

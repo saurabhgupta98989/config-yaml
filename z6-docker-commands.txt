@@ -1,0 +1,7 @@
+docker build -t nagp-employee-be .
+
+docker tag nagp-employee-be saurabhgupta98989/nagp-employee-be:0.0.2
+docker push saurabhgupta98989/nagp-employee-be:0.0.2
+
+-- increment the version otherwise need to manually rollout and restart deployment
+by :  kubectl rollout restart deployment employee-backend

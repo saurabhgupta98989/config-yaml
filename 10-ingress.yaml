@@ -8,7 +8,7 @@ spec:
     - host: employee.35.200.192.126.nip.io
       http:
         paths:
-          - path: /
+          - path: /nagp-employee-be
             pathType: Prefix
             backend:
               service:
