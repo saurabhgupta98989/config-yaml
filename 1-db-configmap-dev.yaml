@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: db-config
 data:
-  DB_URL: jdbc:mysql://mysql:3306/companydb
+  DB_URL: jdbc:mysql://mysql-service:3306/companydb
   DB_USERNAME: root
