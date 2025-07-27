@@ -1,0 +1,14 @@
+gcloud container clusters create nagp-dev --zone asia-south1-a
+gcloud compute disks create nagp-employee-mysql-disk --size=10GB --zone=asia-south1-a
+
+kubectl apply -f 1-db-configmap-dev.yaml
+kubectl apply -f 2-db-secret-dev.yaml
+kubectl apply -f 3-app-configmap-dev.yaml
+kubectl apply -f 4-pv.yaml
+kubectl apply -f 5-pvc.yaml
+kubectl apply -f 6-mysql-deployment.yaml
+kubectl apply -f 7-mysql-service.yaml
+kubectl apply -f 8-api-deployment.yaml
+kubectl apply -f 9-api-service.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.0/deploy/static/provider/cloud/deploy.yaml
+kubectl apply -f 10-ingress.yaml
