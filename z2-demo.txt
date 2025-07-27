@@ -1,15 +1,8 @@
 --- show workloads and kubernates objects use
 kubectl get all
-
-kubectl get configmap
-kubectl get secret
-kubectl get pv
-kubectl get pvc
-or kubectl get configmap,secrets,pv,pvc
-
+kubectl get configmap,secrets,pv,pvc
 kubectl get pods -n ingress-nginx
 kubectl get svc -n ingress-nginx
-
 kubectl get ingress
 
 --- Delete MySQL pod
