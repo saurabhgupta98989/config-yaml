@@ -1,6 +1,6 @@
 --- show workloads and kubernates objects use
-kubectl get all
 kubectl get configmap,secrets,pv,pvc
+kubectl get all
 kubectl get pods -n ingress-nginx
 kubectl get svc -n ingress-nginx
 kubectl get ingress
