@@ -1,5 +1,6 @@
 --- show workloads and kubernates objects use
 kubectl get all
+
 kubectl get configmap
 kubectl get secret
 kubectl get pv
