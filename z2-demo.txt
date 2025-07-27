@@ -1,0 +1,19 @@
+--- Delete MySQL pod
+kubectl get pods
+kubectl delete pod <mysql-pod-name>
+
+--- Wait for pod to come up
+kubectl get pods
+
+--- Show data persist
+kubectl run mysql-client --rm -it --image=mysql:8.0 --restart=Never -- bash
+mysql -h mysql -u root -p
+
+--- Delete spring boot pod
+kubectl get pods
+kubectl delete pod <spring-pod-name>
+
+--- Wait for pod to come up
+kubectl get 
+
+--- Show URL accessible

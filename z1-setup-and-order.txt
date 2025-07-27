@@ -1,14 +1,44 @@
 gcloud container clusters create nagp-dev --zone asia-south1-a
 gcloud compute disks create nagp-employee-mysql-disk --size=10GB --zone=asia-south1-a
 
+----- STEP 1: Apply ConfigMaps and Secret -----
 kubectl apply -f 1-db-configmap-dev.yaml
 kubectl apply -f 2-db-secret-dev.yaml
 kubectl apply -f 3-app-configmap-dev.yaml
+kubectl get configmap
+kubectl get secret
+
+----- STEP 2: Create Persistent Volume & Claim -----
 kubectl apply -f 4-pv.yaml
 kubectl apply -f 5-pvc.yaml
+kubectl get pv
+kubectl get pvc
+
+----- STEP 3: Deploy MySQL and expose service -----
 kubectl apply -f 6-mysql-deployment.yaml
 kubectl apply -f 7-mysql-service.yaml
+kubectl get pods -l app=mysql
+kubectl get svc mysql
+kubectl run mysql-client --rm -it --image=mysql:8.0 --restart=Never -- bash
+mysql -h mysql -u root -p
+#Run SQL scripts
+
+----- STEP 4: Deploy Spring Boot API and service -----
 kubectl apply -f 8-api-deployment.yaml
 kubectl apply -f 9-api-service.yaml
+kubectl get pods -l app=employee
+kubectl get svc employee-backend
+kubectl run curl-client --rm -it --image=curlimages/curl --restart=Never -- sh
+curl http://employee-backend/employees
+
+----- STEP 6: Apply Ingress -----
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.0/deploy/static/provider/cloud/deploy.yaml
+kubectl get pods -n ingress-nginx
+kubectl get svc -n ingress-nginx
+
+----- STEP 7: Since we do not have DNS so assign ingress external IP in nio DNS-----
 kubectl apply -f 10-ingress.yaml
+kubectl get ingress
+
+----- STEP 8: Verify URL-----
+Verify - http://employee.35.200.192.126.nip.io/nagp-employee-be/employees
