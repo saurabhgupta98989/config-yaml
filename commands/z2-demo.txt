@@ -1,8 +1,6 @@
 --- show workloads and kubernates objects use
-kubectl get configmap,secrets,pv,pvc
-kubectl get all
-kubectl get pods -n ingress-nginx
-kubectl get svc -n ingress-nginx
+kubectl get configmap,secrets,pv,pvc,pods,svc
+kubectl get pods,svc -n ingress-nginx
 kubectl get ingress
 
 --- Delete MySQL pod
@@ -14,7 +12,7 @@ kubectl get pods
 
 --- Show data persist
 kubectl run mysql-client --rm -it --image=mysql:8.0 --restart=Never -- bash
-mysql -h mysql -u root -p
+mysql -h mysql-service -u root -p
 
 --- Delete spring boot pod
 kubectl get pods
