@@ -4,6 +4,11 @@ metadata:
   name: employee-backend
 spec:
   replicas: 4
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
   selector:
     matchLabels:
       app: employee
@@ -14,7 +19,7 @@ spec:
     spec:
       containers:
         - name: employee-api
-          image: saurabhgupta98989/nagp-employee-be:0.0.2
+          image: saurabhgupta98989/nagp-employee-be:0.0.4
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
