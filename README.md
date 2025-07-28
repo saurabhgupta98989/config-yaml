@@ -1,5 +1,3 @@
-## Components
-
 - **Spring Boot Microservice Repo**  
   https://github.com/saurabhgupta98989/nagp-employee-be -
   A simple microservice exposing REST API for employee data.
@@ -13,14 +11,13 @@
   - Deployment
   - Services
   - Ingress Controller
+  - Dockerfile
 
 - **Docker Image**  
   Available on Docker Hub:  
   https://hub.docker.com/r/saurabhgupta98989/nagp-employee-be/tags
 
----
-
-## Service URLs
+- **Service URLs**  
 
 | Accessibility       | URL                                                                 |
 |-------------------|----------------------------------------------------------------------|
