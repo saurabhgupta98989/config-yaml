@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: employee.35.200.192.126.nip.io
+    - host: employee.34.93.5.161.nip.io
       http:
         paths:
           - path: /nagp-employee-be

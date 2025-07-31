@@ -3,7 +3,7 @@ kind: StatefulSet
 metadata:
   name: mysql
 spec:
-  serviceName: mysql-service  # Must match the headless service name
+  serviceName: mysql-service
   replicas: 1
   selector:
     matchLabels:
