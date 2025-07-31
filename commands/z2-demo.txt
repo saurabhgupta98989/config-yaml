@@ -12,7 +12,7 @@ kubectl get pods
 
 --- Show data persist
 kubectl run mysql-client --rm -it --image=mysql:8.0 --restart=Never -- bash
-mysql -h mysql-service -u root -p
+mysql -h mysql-0.mysql-service -u root -p
 
 --- Delete spring boot pod
 kubectl get pods
