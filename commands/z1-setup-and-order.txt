@@ -10,26 +10,24 @@ kubectl get secret
 
 ----- STEP 2: Create Persistent Volume & Claim -----
 kubectl apply -f 4-pv.yaml
-kubectl apply -f 5-pvc.yaml
 kubectl get pv
-kubectl get pvc
 
 ----- STEP 3: Deploy MySQL and expose service -----
-kubectl apply -f 6-mysql-deployment.yaml
-kubectl apply -f 7-mysql-service.yaml
+kubectl apply -f 5-mysql-statefulset.yaml
+kubectl apply -f 6-mysql-service.yaml
 kubectl get pods -l app=mysql
 kubectl get svc mysql
 kubectl run mysql-client --rm -it --image=mysql:8.0 --restart=Never -- bash
-mysql -h mysql -u root -p
+mysql -h mysql-0.mysql-service -u root -p
 #Run SQL scripts
 
 ----- STEP 4: Deploy Spring Boot API and service -----
-kubectl apply -f 8-api-deployment.yaml
-kubectl apply -f 9-api-service.yaml
+kubectl apply -f 7-api-deployment.yaml
+kubectl apply -f 8-api-service.yaml
 kubectl get pods -l app=employee
 kubectl get svc employee-backend
 kubectl run curl-client --rm -it --image=curlimages/curl --restart=Never -- sh
-curl http://employee-backend/employees
+curl http://employee-backend/nagp-employee-be/employees
 
 ----- STEP 6: Apply Ingress -----
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.0/deploy/static/provider/cloud/deploy.yaml
@@ -37,7 +35,7 @@ kubectl get pods -n ingress-nginx
 kubectl get svc -n ingress-nginx
 
 ----- STEP 7: Since we do not have DNS so assign ingress external IP in nio DNS-----
-kubectl apply -f 10-ingress.yaml
+kubectl apply -f 9-ingress.yaml
 kubectl get ingress
 
 ----- STEP 8: Verify URL-----
